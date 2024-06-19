@@ -13,7 +13,7 @@ steps:
 
 - task: AzurePowerShell@5
   inputs:
-    azureSubscription: 'Pay-As-You-Go (81c885bc-2dea-400e-8f5d-872acf230e16)'
+    azureSubscription: 'azure-devops'
     ScriptType: 'InlineScript'
     Inline: |
       $containerName = "input"
