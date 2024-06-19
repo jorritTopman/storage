@@ -1,0 +1,25 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: 'azure-devops'
+    ScriptType: 'InlineScript'
+    Inline: |
+      $containerName = "input"
+            $storageaccount = Get-AzStorageAccount -ResourceGroupName rg-dev-dataplatform -Name sadevdataplatformdl02
+            $storageaccount
+            $ctx = New-AzStorageContext -StorageAccountName sadevdataplatformdl01 -UseConnectedAccount
+            $ctx 
+            
+            $directoryName = "test/"
+            Set-AzStorageBlobContent -Container $containerName -File (New-TemporaryFile) -Blob $directoryName -Context $ctx
