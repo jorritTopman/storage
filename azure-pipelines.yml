@@ -24,3 +24,5 @@ steps:
             
             # $directoryName = "test/"
             # Set-AzStorageBlobContent -Container $containerName -File (New-TemporaryFile) -Blob $directoryName -Context $ctx
+    FailOnStandardError: true
+    azurePowerShellVersion: 'LatestVersion'
