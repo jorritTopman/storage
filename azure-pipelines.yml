@@ -10,9 +10,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+
 - task: AzurePowerShell@5
   inputs:
-    azureSubscription: 'azure-devops'
+    azureSubscription: 'Pay-As-You-Go (81c885bc-2dea-400e-8f5d-872acf230e16)'
     ScriptType: 'InlineScript'
     Inline: |
       $containerName = "input"
@@ -21,5 +22,5 @@ steps:
             $ctx = New-AzStorageContext -StorageAccountName sadevdataplatformdl01 -UseConnectedAccount
             $ctx 
             
-            $directoryName = "test/"
-            Set-AzStorageBlobContent -Container $containerName -File (New-TemporaryFile) -Blob $directoryName -Context $ctx
+            # $directoryName = "test/"
+            # Set-AzStorageBlobContent -Container $containerName -File (New-TemporaryFile) -Blob $directoryName -Context $ctx
