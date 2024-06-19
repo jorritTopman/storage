@@ -22,7 +22,7 @@ steps:
             $ctx = New-AzStorageContext -StorageAccountName sadevdataplatformdl01 -UseConnectedAccount
             $ctx 
             
-            # $directoryName = "test/"
-            # Set-AzStorageBlobContent -Container $containerName -File (New-TemporaryFile) -Blob $directoryName -Context $ctx
+            $directoryName = "test/"
+            Set-AzStorageBlobContent -Container $containerName -File (New-TemporaryFile) -Blob $directoryName -Context $ctx
     FailOnStandardError: true
     azurePowerShellVersion: 'LatestVersion'
